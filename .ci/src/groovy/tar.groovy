@@ -12,7 +12,7 @@ def unTar(envObj){
   dir(envObj.WORKSPACE_CACHE_DIR){
     sh 'pwd'
     sh 'ls -la'
-    sh "tar xfz ${tarName()} --strip-components=4 -C ${envObj.WORKSPACE_DIR}"
+    sh "tar xfz ${tarName(envObj)} --strip-components=4 -C ${envObj.WORKSPACE_DIR}"
   }
 }
 def tarGlobs(envObj){
