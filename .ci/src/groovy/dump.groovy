@@ -1,12 +1,10 @@
-def dumpSizes(xs){
-     xs.each { dumpSize(it) }
-}
-def dumpSize(String x){
+def dumpSize {
   script {
-    sh "du -hcs ${x}"
+    sh "du -hcs ${it}"
   }
 }
-def dumpEnv(){
+def dumpSizes{ xs -> xs.each { dumpSize(it) }
+def dumpEnv {
   sh 'env > env.txt'
   script {
     for (String x: readFile('env.txt').split("\r?\n")) {
