@@ -35,7 +35,7 @@ pipeline {
             def t = load("${env.GROOVY_SRC}/tar.groovy")
             d.dumpEnv()
             createWorkspaceCache()
-            t.tarAll()
+            t.tarAll(env)
             d.dumpSizes(["${env.WORKSPACE}", "${env.WORKSPACE_DIR}/elasticsearch", "${env.FULL_WORKSPACE_CACHE_PATH}"])
           }
           step([$class: 'ClassicUploadStep',
